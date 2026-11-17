@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+    <Import Project="..\packages\EntityFramework.6.5.2\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.2\build\EntityFramework.props')"/>
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{36E05DA8-DF65-40E1-BC2D-315D41F41C18}</ProjectGuid>
+        <OutputType>WinExe</OutputType>
+        <RootNamespace>SportRentApp</RootNamespace>
+        <AssemblyName>SportRentApp</AssemblyName>
+        <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+        <WarningLevel>4</WarningLevel>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <Deterministic>true</Deterministic>
+        <CleanFile>$(MSBuildProjectFile).BuildOutputs.txt</CleanFile>
+        <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+        <DebugSymbols>true</DebugSymbols>
+        <OutputPath>bin\x64\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <DebugType>full</DebugType>
+        <PlatformTarget>x64</PlatformTarget>
+        <LangVersion>7.3</LangVersion>
+        <ErrorReport>prompt</ErrorReport>
+        <Prefer32Bit>true</Prefer32Bit>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+        <OutputPath>bin\x64\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <Optimize>true</Optimize>
+        <DebugType>pdbonly</DebugType>
+        <PlatformTarget>x64</PlatformTarget>
+        <LangVersion>7.3</LangVersion>
+        <ErrorReport>prompt</ErrorReport>
+        <Prefer32Bit>true</Prefer32Bit>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+            <HintPath>..\packages\EntityFramework.6.5.2\lib\net45\EntityFramework.dll</HintPath>
+        </Reference>
+        <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+            <HintPath>..\packages\EntityFramework.6.5.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+        </Reference>
+        <Reference Include="System"/>
+        <Reference Include="System.Configuration"/>
+        <Reference Include="System.ComponentModel.DataAnnotations"/>
+        <Reference Include="System.Data"/>
+        <Reference Include="System.Data.SQLite, Version=2.0.4.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+            <HintPath>..\packages\System.Data.SQLite.2.0.4\lib\net471\System.Data.SQLite.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Data.SQLite.EF6, Version=2.0.3.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+            <HintPath>..\packages\System.Data.SQLite.EF6.2.0.3\lib\net471\System.Data.SQLite.EF6.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Transactions"/>
+        <Reference Include="System.Xml"/>
+        <Reference Include="Microsoft.CSharp"/>
+        <Reference Include="System.Core"/>
+        <Reference Include="System.Xml.Linq"/>
+        <Reference Include="System.Data.DataSetExtensions"/>
+        <Reference Include="System.Net.Http"/>
+        <Reference Include="System.Xaml">
+            <RequiredTargetFramework>4.0</RequiredTargetFramework>
+        </Reference>
+        <Reference Include="WindowsBase"/>
+        <Reference Include="PresentationCore"/>
+        <Reference Include="PresentationFramework"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ApplicationDefinition Include="App.xaml">
+            <Generator>MSBuild:Compile</Generator>
+            <SubType>Designer</SubType>
+        </ApplicationDefinition>
+        <Compile Include="Data\ApplicationContext.cs"/>
+        <Compile Include="Controls\BrandLogo.cs"/>
+        <Compile Include="Controls\OverlayWindow.cs"/>
+        <Compile Include="Models\TeamModels.cs"/>
+        <Compile Include="Services\TeamService.cs"/>
+        <Compile Include="Services\JournalService.cs"/>
+        <Compile Include="Views\TeamHub.cs"/>
+        <Compile Include="Controls\CatalogSurface.cs"/>
+        <Compile Include="Services\CatalogService.cs"/>
+        <Compile Include="Security\AccessPolicy.cs"/>
+        <Compile Include="Security\StaffWork.cs"/>
+        <Compile Include="Models\ShopModels.cs"/>
+        <Compile Include="Data\StoreSchema.cs"/>
+        <Compile Include="Security\PasswordHash.cs"/>
+        <Compile Include="Services\ShopService.cs"/>
+        <Compile Include="Services\KioskService.cs"/>
+        <Compile Include="Controls\ShopForms.cs"/>
+        <Compile Include="Validation\InputRules.cs"/>
+        <Compile Include="Validation\RentalRules.cs"/>
+        <Compile Include="Views\WorkplaceView.cs"/>
+        <Compile Include="Views\EquipmentEditor.xaml.cs">
+            <DependentUpon>EquipmentEditor.xaml</DependentUpon>
+        </Compile>
+        <Page Include="Styles\CatalogStyles.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </Page>
+        <Page Include="Views\EquipmentEditor.xaml">
+            <Generator>MSBuild:Compile</Generator>
+            <SubType>Designer</SubType>
+        </Page>
+        <Compile Include="Views\AuthWindow.xaml.cs">
+            <DependentUpon>AuthWindow.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Models\Equipment.cs"/>
+        <Compile Include="Models\CatalogItem.cs"/>
+        <Compile Include="Models\Rental.cs"/>
+        <Compile Include="Models\User.cs"/>
+        <Compile Include="Models\UserRole.cs"/>
+        <Compile Include="Security\UserSession.cs"/>
+        <Page Include="Views\AuthWindow.xaml">
+            <SubType>Designer</SubType>
+            <Generator>MSBuild:Compile</Generator>
+        </Page>
+        <Page Include="Views\MainWindow.xaml">
+            <Generator>MSBuild:Compile</Generator>
+            <SubType>Designer</SubType>
+        </Page>
+        <Compile Include="App.xaml.cs">
+            <DependentUpon>App.xaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
+        <Compile Include="Views\MainWindow.xaml.cs">
+            <DependentUpon>MainWindow.xaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Properties\AssemblyInfo.cs">
+            <SubType>Code</SubType>
+        </Compile>
+        <Compile Include="Properties\Resources.Designer.cs">
+            <AutoGen>True</AutoGen>
+            <DesignTime>True</DesignTime>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+        <Compile Include="Properties\Settings.Designer.cs">
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Settings.settings</DependentUpon>
+            <DesignTimeSharedInput>True</DesignTimeSharedInput>
+        </Compile>
+        <EmbeddedResource Include="Properties\Resources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <None Include="packages.config"/>
+        <None Include="Properties\Settings.settings">
+            <Generator>SettingsSingleFileGenerator</Generator>
+            <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+        </None>
+        <None Include="Data\Demo\RentalShop.db"/>
+        <None Include="Data\Demo\CatalogImages\*.png"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Resource Include="Resources\Nunito\Nunito-Regular.ttf"/>
+        <None Include="Resources\Nunito\OFL.txt"/>
+        <None Include="App.config"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="e_sqlite3.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+    <Target Name="InstallInitialDatabase" AfterTargets="Build" Condition="'$(DesignTimeBuild)' != 'true' and !Exists('$(TargetDir)RentalShop.db')">
+        <Copy SourceFiles="$(MSBuildProjectDirectory)\Data\Demo\RentalShop.db" DestinationFolder="$(TargetDir)"/>
+        <ItemGroup>
+            <_DemoPhoto Include="$(MSBuildProjectDirectory)\Data\Demo\CatalogImages\*.png"/>
+        </ItemGroup>
+        <Copy SourceFiles="@(_DemoPhoto)" DestinationFolder="$(TargetDir)CatalogImages" SkipUnchangedFiles="true"/>
+    </Target>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+    <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+        <PropertyGroup>
+            <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+        </PropertyGroup>
+        <Error Condition="!Exists('..\packages\EntityFramework.6.5.2\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.2\build\EntityFramework.props'))"/>
+        <Error Condition="!Exists('..\packages\EntityFramework.6.5.2\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.2\build\EntityFramework.targets'))"/>
+    </Target>
+    <Import Project="..\packages\EntityFramework.6.5.2\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.2\build\EntityFramework.targets')"/>
+</Project>

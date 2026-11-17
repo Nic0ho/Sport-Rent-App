@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:SportRentApp" x:Class="SportRentApp.AuthWindow" mc:Ignorable="d" FontFamily="pack://application:,,,/SportRentApp;component/Resources/Nunito/#Nunito" Title="Sport Drive" Height="650" Width="940" MinHeight="360" MinWidth="480" WindowStartupLocation="CenterScreen" Background="#312C2C" UseLayoutRounding="True" PreviewKeyDown="Credentials_KeyDown" Loaded="Window_Loaded">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/SportRentApp;component/Styles/CatalogStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="TextBox">
+                <Setter Property="FontFamily" Value="{StaticResource AppFont}"/>
+                <Setter Property="Height" Value="38"/>
+                <Setter Property="MinHeight" Value="0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="TextBox">
+                            <ScrollViewer x:Name="PART_ContentHost" Style="{x:Null}" Padding="0" VerticalAlignment="Center"/>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                <Setter Property="CaretBrush" Value="#4D3B3B"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+            </Style>
+            <Style TargetType="PasswordBox">
+                <Setter Property="FontFamily" Value="{StaticResource AppFont}"/>
+                <Setter Property="Height" Value="38"/>
+                <Setter Property="MinHeight" Value="0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="PasswordBox">
+                            <ScrollViewer x:Name="PART_ContentHost" Style="{x:Null}" Padding="0" VerticalAlignment="Center"/>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                <Setter Property="CaretBrush" Value="#4D3B3B"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+            </Style>
+            <Style x:Key="GreenPillButton" TargetType="Button" BasedOn="{StaticResource CatalogPrimary}">
+                <Setter Property="Padding" Value="18,6"/>
+            </Style>
+            <Style x:Key="TabButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="Transparent">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Viewbox Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid Width="880" Height="590">
+            <Path x:Name="pathContentBg" Fill="#5E4949"/>
+            <Canvas x:Name="decoCanvas" Width="880" Height="590">
+                <Rectangle Canvas.Left="35" Canvas.Top="200" Width="10" Height="310" RadiusX="5" RadiusY="5" Fill="#4D3B3B" IsHitTestVisible="False"/>
+                <Rectangle Canvas.Left="52" Canvas.Top="200" Width="10" Height="275" RadiusX="5" RadiusY="5" Fill="#4D3B3B" IsHitTestVisible="False"/>
+                <Rectangle Canvas.Left="69" Canvas.Top="200" Width="10" Height="240" RadiusX="5" RadiusY="5" Fill="#4D3B3B" IsHitTestVisible="False"/>
+                <Rectangle Canvas.Left="60" Canvas.Top="550" Width="480" Height="10" RadiusX="5" RadiusY="5" Fill="#4D3B3B" IsHitTestVisible="False"/>
+                <Rectangle Canvas.Left="100" Canvas.Top="535" Width="440" Height="10" RadiusX="5" RadiusY="5" Fill="#4D3B3B" IsHitTestVisible="False"/>
+                <Rectangle Canvas.Left="140" Canvas.Top="520" Width="400" Height="10" RadiusX="5" RadiusY="5" Fill="#4D3B3B" IsHitTestVisible="False"/>
+                <local:BrandLogo Width="300" Height="145" Canvas.Left="35" Canvas.Top="10"/>
+            </Canvas>
+            <Canvas x:Name="canvasFormHost" Width="880" Height="590">
+                <Canvas x:Name="pageAuth" Width="880" Height="590">
+                    <Canvas.RenderTransform>
+                        <TranslateTransform/>
+                    </Canvas.RenderTransform>
+                    <Border x:Name="borderLogin" Canvas.Left="105" Canvas.Top="200" Width="400" Height="38" Background="#D9D9D9" CornerRadius="14">
+                        <Grid Margin="15 0">
+                            <TextBlock x:Name="hintLogin" Text="введіть логін" Foreground="#9A9A9A" FontSize="16" FontFamily="pack://application:,,,/SportRentApp;component/Resources/Nunito/#Nunito" VerticalAlignment="Center" IsHitTestVisible="False"/>
+                            <TextBox x:Name="textBoxLogin" Background="Transparent" BorderThickness="0" FontSize="16" FontFamily="pack://application:,,,/SportRentApp;component/Resources/Nunito/#Nunito" Foreground="#4D3B3B" VerticalAlignment="Center" TextChanged="TextBoxLogin_TextChanged"/>
+                        </Grid>
+                    </Border>
+                    <Border x:Name="badgeLogin" Canvas.Left="515" Canvas.Top="200" Width="38" Height="38" Background="#D9D9D9" CornerRadius="14" Visibility="Collapsed" Cursor="Hand">
+                        <Border.RenderTransform>
+                            <TranslateTransform/>
+                        </Border.RenderTransform>
+                        <TextBlock Text="!" Foreground="#D32F2F" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <Border x:Name="borderPassword" Canvas.Left="105" Canvas.Top="246" Width="400" Height="38" Background="#D9D9D9" CornerRadius="14">
+                        <Grid Margin="15 0">
+                            <TextBlock x:Name="hintPassword" Text="введіть пароль" Foreground="#9A9A9A" FontSize="16" FontFamily="pack://application:,,,/SportRentApp;component/Resources/Nunito/#Nunito" VerticalAlignment="Center" IsHitTestVisible="False"/>
+                            <PasswordBox x:Name="passwordBox" Background="Transparent" BorderThickness="0" FontSize="16" FontFamily="pack://application:,,,/SportRentApp;component/Resources/Nunito/#Nunito" Foreground="#4D3B3B" VerticalAlignment="Center" PasswordChanged="PasswordBox_PasswordChanged"/>
+                        </Grid>
+                    </Border>
+                    <Border x:Name="badgePassword" Canvas.Left="515" Canvas.Top="246" Width="38" Height="38" Background="#D9D9D9" CornerRadius="14" Visibility="Collapsed" Cursor="Hand">
+                        <Border.RenderTransform>
+                            <TranslateTransform/>
+                        </Border.RenderTransform>
+                        <TextBlock Text="!" Foreground="#D32F2F" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <Button x:Name="btnSignIn" Content="Увійти" Canvas.Left="105" Canvas.Top="455" Width="200" Height="38" Style="{StaticResource GreenPillButton}" Click="BtnSignIn_Click"/>
+                </Canvas>
+                <Canvas x:Name="pageKiosk" Width="880" Height="590" Visibility="Collapsed">
+                    <Canvas.RenderTransform>
+                        <TranslateTransform/>
+                    </Canvas.RenderTransform>
+                    <StackPanel Canvas.Left="105" Canvas.Top="200" Width="400">
+                        <Border Background="#D9D9D9" CornerRadius="14" Height="38" Margin="0,0,0,16">
+                            <Grid Margin="15,0">
+                                <TextBlock x:Name="hintKioskIdentifier" Text="номер кіоску" Foreground="#9A9A9A" FontSize="16" VerticalAlignment="Center" IsHitTestVisible="False"/>
+                                <TextBox x:Name="kioskIdentifier" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" Foreground="#4D3B3B" FontSize="16" MaxLength="80" TextChanged="KioskIdentifier_TextChanged"/>
+                            </Grid>
+                        </Border>
+                        <Border Background="#D9D9D9" CornerRadius="14" Height="38">
+                            <Grid Margin="15,0">
+                                <TextBlock x:Name="hintKioskCode" Text="введіть код від менеджера" Foreground="#9A9A9A" FontSize="16" VerticalAlignment="Center" IsHitTestVisible="False"/>
+                                <PasswordBox x:Name="kioskCode" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" Foreground="#4D3B3B" FontSize="16" MaxLength="256" PasswordChanged="KioskCode_PasswordChanged"/>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                    <Button x:Name="btnOpenKiosk" Content="Запустити кіоск" Canvas.Left="105" Canvas.Top="455" Width="200" Height="38" Style="{StaticResource GreenPillButton}" Click="KioskMode_Click"/>
+                </Canvas>
+            </Canvas>
+            <Grid x:Name="shadowGrid" Width="880" Height="590" IsHitTestVisible="False">
+                <Path x:Name="pathShadow" Stroke="Black" StrokeThickness="8" Opacity="0.22">
+                    <Path.Effect>
+                        <BlurEffect Radius="8" KernelType="Gaussian"/>
+                    </Path.Effect>
+                </Path>
+            </Grid>
+            <Path x:Name="pathFrame" Fill="#312C2C" IsHitTestVisible="False"/>
+            <Canvas Width="880" Height="590">
+                <Button x:Name="tabBtnAuth" Style="{StaticResource TabButtonStyle}" Canvas.Left="800" Canvas.Top="18" Width="55" Height="227" Click="TabAuth_Click">
+                    <TextBlock x:Name="txtTabAuth" Text="авторизація" FontSize="20" FontFamily="pack://application:,,,/SportRentApp;component/Resources/Nunito/#Nunito" Foreground="#D2D2D2">
+                        <TextBlock.LayoutTransform>
+                            <RotateTransform Angle="-90"/>
+                        </TextBlock.LayoutTransform>
+                    </TextBlock>
+                </Button>
+                <Button x:Name="tabBtnKiosk" Style="{StaticResource TabButtonStyle}" Canvas.Left="800" Canvas.Top="260" Width="55" Height="110" Click="TabKiosk_Click">
+                    <TextBlock x:Name="txtTabKiosk" Text="кіоск" FontSize="20" FontFamily="pack://application:,,,/SportRentApp;component/Resources/Nunito/#Nunito" Foreground="#D2D2D2">
+                        <TextBlock.LayoutTransform>
+                            <RotateTransform Angle="-90"/>
+                        </TextBlock.LayoutTransform>
+                    </TextBlock>
+                </Button>
+            </Canvas>
+        </Grid>
+    </Viewbox>
+</Window>
