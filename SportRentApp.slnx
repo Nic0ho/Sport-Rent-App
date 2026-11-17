@@ -1,0 +1,9 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="SportRentApp/SportRentApp.csproj" Id="36e05da8-df65-40e1-bc2d-315d41f41c18">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+</Solution>

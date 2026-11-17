@@ -1,0 +1,13 @@
+.vs/
+packages/
+artifacts/
+scripts/
+**/bin/
+**/obj/
+**/*_wpftmp.csproj
+*.user
+*.zip
+*.db
+*.db-*
+*.bak
+!SportRentApp/Data/Demo/RentalShop.db
